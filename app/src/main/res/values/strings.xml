@@ -6,4 +6,6 @@
     <string name="compare_passlocks">Compare Passlocks</string>
     <string name="view_password_tips">View Password Tips</string>
     <string name="passlock">PassLock</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create Account</string>
 </resources>
