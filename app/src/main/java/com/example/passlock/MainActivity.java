@@ -22,17 +22,17 @@ public class MainActivity extends AppCompatActivity {
 
         // check if already logged in
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        boolean isLoggedIn = prefs.getBoolean("isLoggedIn", false);
-
-        if (isLoggedIn) {
-            startActivity(new Intent(this, LandingPage.class));
-            finish();
-        }
-
-        loginButton.setOnClickListener(v ->
-                startActivity(new Intent(this, LoginActivity.class)));
-
-        createAccountButton.setOnClickListener(v ->
-                startActivity(new Intent(this, CreateAccountActivity.class)));
+//        boolean isLoggedIn = prefs.getBoolean("isLoggedIn", false);
+//
+//        if (isLoggedIn) {
+//            startActivity(new Intent(this, LandingPage.class));
+//            finish();
+//        }
+//
+//        loginButton.setOnClickListener(v ->
+//                startActivity(new Intent(this, LoginActivity.class)));
+//
+//        createAccountButton.setOnClickListener(v ->
+//                startActivity(new Intent(this, CreateAccountActivity.class)));
     }
 }

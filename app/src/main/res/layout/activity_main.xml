@@ -9,7 +9,6 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:text="PassLock"
         android:textSize="32sp"
         android:textStyle="bold"
         android:layout_marginBottom="40dp"
@@ -19,13 +18,11 @@
 
     <Button
         android:id="@+id/loginButton"
-        android:text="Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/createAccountButton"
-        android:text="Create Account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp" />
