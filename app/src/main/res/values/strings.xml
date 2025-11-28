@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">PassLock</string>
+    <string name="enter_a_new_passlock">Enter a New PassLock</string>
+    <string name="view_previous_passlocks">View Previous PassLocks</string>
+    <string name="suggest_passlocks">Suggest PassLocks</string>
+    <string name="compare_passlocks">Compare Passlocks</string>
+    <string name="view_password_tips">View Password Tips</string>
+    <string name="passlock">PassLock</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create Account</string>
 </resources>

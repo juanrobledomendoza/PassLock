@@ -3,30 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="24dp"
     tools:context=".MainActivity">
 
+
+
     <TextView
-        android:text="PassLock"
+        android:id="@+id/textView"
+        android:layout_width="155dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="44dp"
+        android:text="@string/passlock"
         android:textSize="32sp"
         android:textStyle="bold"
-        android:layout_marginBottom="40dp"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/loginButton"
-        android:text="Login"
+        android:text="@string/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/createAccountButton"
-        android:text="Create Account"
         android:layout_width="match_parent"
+        android:text="@string/create_account"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp" />
 
