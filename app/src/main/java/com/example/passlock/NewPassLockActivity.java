@@ -16,8 +16,7 @@ public class NewPassLockActivity extends AppCompatActivity {
      private EditText serviceNameEditText;
      private EditText usernameEditText;
      private EditText passwordEditText;
-     private Button saveButton;
-     private PassLockDao passLockDao;
+    private PassLockDao passLockDao;
 
      private int currentUserId;
      
@@ -43,7 +42,7 @@ public class NewPassLockActivity extends AppCompatActivity {
           serviceNameEditText = findViewById(R.id.editTextServiceName);
           usernameEditText = findViewById(R.id.editTextUsername);
           passwordEditText = findViewById(R.id.editTextPassword);
-          saveButton = findViewById(R.id.saveButton);
+         Button saveButton = findViewById(R.id.saveButton);
           currentUserId = prefs.getInt("userId", -1);
 
           saveButton.setOnClickListener(v -> {
@@ -65,7 +64,7 @@ public class NewPassLockActivity extends AppCompatActivity {
                     Toast.makeText(NewPassLockActivity.this, "Error saving PassLock", Toast.LENGTH_SHORT).show();
                }
           });
-     ;}
+     }
      
      
 }

@@ -26,6 +26,9 @@
         <activity
             android:name=".LandingPage"
             android:exported="false" />
+        <activity
+            android:name=".NewPassLockActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
