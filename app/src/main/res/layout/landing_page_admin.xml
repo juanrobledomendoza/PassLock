@@ -4,48 +4,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LandingPage">
+    tools:context="com.example.passlock.LandingPage">
 
-    <!-- Header Section -->
+    <!-- Header Lock Icon -->
+
+    <!-- Header Text -->
+
+    <!-- BUTTONS SECTION -->
+
+    <!-- LOGOUT BUTTON (Anchored at bottom like your layout) -->
+
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/adminLockIcon"
         android:layout_width="95dp"
         android:layout_height="97dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_lock_lock"
-         />
+        app:srcCompat="@android:drawable/ic_lock_lock" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/adminTitle"
+        android:layout_width="231dp"
+        android:layout_height="33dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/passlock"
-        android:textSize="32sp"
+        android:text="Welcome Admin!"
+        android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@id/adminLockIcon"
+        app:layout_constraintEnd_toStartOf="@id/adminLockIcon"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@id/adminLockIcon"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <!-- Admin doesn't have the same buttons, so Logout is anchored to the bottom -->
-    <Button
-        android:id="@+id/logoutBtn"
-        style="@style/Widget.AppCompat.Button.Colored"
+    <LinearLayout
+        android:id="@+id/adminButtonContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#add8e6"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/adminLockIcon">
+
+
+        <Button
+            android:id="@+id/viewUserPasslocksBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#0000C7
+"
+            android:text="View User PassLocks" />
+
+        <Button
+            android:id="@+id/editSuggestedPasslocksBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#6700C7"
+            android:text="Edit Suggested PassLocks" />
+
+        <Button
+            android:id="@+id/compareUserPasslocksBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#0000C7"
+            android:text="Compare User PassLocks" />
+
+        <Button
+            android:id="@+id/managePasswordTipsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#6700C7"
+            android:text="Manage Password Tips" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/adminLogoutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Log Out"
-        app:cornerRadius="4dp"
+        android:backgroundTint="#850707"
+        android:textStyle="bold"
+        android:background="@android:color/transparent"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="24dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

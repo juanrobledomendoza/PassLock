@@ -38,8 +38,10 @@ public class LandingPage extends AppCompatActivity {
         });
 
         Button BtnNewPassLock = findViewById(R.id.newPassLockBtn);
-        BtnNewPassLock.setOnClickListener(v -> {
-            startActivity(new Intent(this, NewPassLockActivity.class));
-        });
+        if (BtnNewPassLock != null) {
+            BtnNewPassLock.setOnClickListener(v -> {
+                startActivity(new Intent(this, NewPassLockActivity.class));
+            });
+        }
     }
 }
