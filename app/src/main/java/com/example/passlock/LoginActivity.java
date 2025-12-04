@@ -76,9 +76,10 @@ public class LoginActivity extends AppCompatActivity {
             editor.putBoolean("isLoggedIn", true);
             editor.putString("username", user.getUsername());
             editor.putBoolean("isAdmin", user.isAdmin());
+            editor.putInt("userId", user.getUserId()); // <-- Save the User ID
             editor.apply();
 
-            // Navigate to LandingPage (to be implemented by other team member)
+            // Navigate to LandingPage
             Intent intent = new Intent(this, LandingPage.class);
             startActivity(intent);
             finish();
@@ -90,4 +91,3 @@ public class LoginActivity extends AppCompatActivity {
         tvErrorMessage.setVisibility(View.VISIBLE);
     }
 }
-

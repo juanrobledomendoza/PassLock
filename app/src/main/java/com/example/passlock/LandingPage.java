@@ -36,5 +36,10 @@ public class LandingPage extends AppCompatActivity {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         });
+
+        Button BtnNewPassLock = findViewById(R.id.newPassLockBtn);
+        BtnNewPassLock.setOnClickListener(v -> {
+            startActivity(new Intent(this, NewPassLockActivity.class));
+        });
     }
 }

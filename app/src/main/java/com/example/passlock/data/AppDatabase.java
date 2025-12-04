@@ -8,10 +8,10 @@ import androidx.room.RoomDatabase;
 
 @Database(
         entities = {
-                User.class
-                // TODO: add PasswordTest, Tip, etc. later
+                User.class,
+                PassLock.class
         },
-        version = 1,
+        version = 2, // <-- Increment version number
         exportSchema = false
 )
 public abstract class AppDatabase extends RoomDatabase {
@@ -19,6 +19,7 @@ public abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase INSTANCE;
 
     public abstract UserDao userDao();
+    public abstract PassLockDao passLockDao();
 
     public static AppDatabase getInstance(Context context) {
         if (INSTANCE == null) {
@@ -29,6 +30,7 @@ public abstract class AppDatabase extends RoomDatabase {
                                     AppDatabase.class,
                                     "passlock_db"
                             )
+                            .fallbackToDestructiveMigration()
                             .allowMainThreadQueries()
                             .build();
                 }
@@ -37,4 +39,3 @@ public abstract class AppDatabase extends RoomDatabase {
         return INSTANCE;
     }
 }
-
