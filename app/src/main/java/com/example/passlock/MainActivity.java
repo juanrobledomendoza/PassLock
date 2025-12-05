@@ -20,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
         createAccountButton = findViewById(R.id.createAccountButton);
 
-        // check if already logged in
-//        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-//        boolean isLoggedIn = prefs.getBoolean("isLoggedIn", false);
+//         check if already logged in
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        boolean isLoggedIn = prefs.getBoolean("isLoggedIn", false);
 //
 //        if (isLoggedIn) {
 //            startActivity(new Intent(this, LandingPage.class));
@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, LoginActivity.class)));
 
 //        createAccountButton.setOnClickListener(v ->
-//                startActivity(new Intent(this, CreateAccountActivity.class)));
+////                startActivity(new Intent(this, CreateAccountActivity.class)));
+//    }
     }
+
 }

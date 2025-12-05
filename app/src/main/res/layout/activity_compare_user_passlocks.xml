@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hackerBackground"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ComparePasslocksActivity">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/tv_compare_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="> PASSWORD STRENGTH OVERVIEW"
+        android:textSize="20sp"
+        android:textColor="@color/hackerGreen"
+        android:typeface="monospace"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tv_compare_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compare users by overall password grade."
+        android:textSize="14sp"
+        android:textColor="@color/hackerMutedGreen"
+        android:typeface="monospace"
+        android:layout_marginBottom="16dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/hackerAccent"
+        android:layout_marginBottom="12dp" />
+
+    <!-- List of users + grades -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_compare"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btn_back_from_compare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BACK TO ADMIN"
+        android:textAllCaps="true"
+        android:textColor="@color/hackerAccent"
+        android:typeface="monospace"
+        android:background="@drawable/hacker_button_outline"
+        android:padding="10dp"
+        android:layout_marginTop="12dp" />
+
+</LinearLayout>

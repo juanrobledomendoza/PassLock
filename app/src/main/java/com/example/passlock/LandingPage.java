@@ -1,5 +1,6 @@
 package com.example.passlock;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.passlock.data.PasswordTest;
 
 public class LandingPage extends AppCompatActivity {
     @Override
@@ -17,12 +20,53 @@ public class LandingPage extends AppCompatActivity {
         boolean isAdmin = prefs.getBoolean("isAdmin", false);
         String username = prefs.getString("username", "User");
 
+        // Checks and loads appropriate layout/landing page.
         if (isAdmin) {
             setContentView(R.layout.landing_page_admin);
+
+            // Admin-only buttons should be handled here
+            Button viewUserPasslocksBtn = findViewById(R.id.viewUserPasslocksBtn);
+            if (viewUserPasslocksBtn != null) {
+                viewUserPasslocksBtn.setOnClickListener(v ->
+                        startActivity(new Intent(this, ViewUserPasslocksActivity.class))
+                );
+            }
+
+            Button editSuggestedPasslocksBtn = findViewById(R.id.editSuggestedPasslocksBtn);
+            if (editSuggestedPasslocksBtn != null) {
+                editSuggestedPasslocksBtn.setOnClickListener(v ->
+                        startActivity(new Intent(this, EditSuggestedPasslocksActivity.class))
+                );
+            }
+
+            Button compareUserPasslocksBtn = findViewById(R.id.compareUserPasslocksBtn);
+            if (compareUserPasslocksBtn != null) {
+                compareUserPasslocksBtn.setOnClickListener(v ->
+                        startActivity(new Intent(this, ComparePasslocksActivity.class))
+                );
+            }
+
+            @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button managePasswordTipsBtn = findViewById(R.id.managePasswordTipsBtn);
+            if (managePasswordTipsBtn != null) {
+                managePasswordTipsBtn.setOnClickListener(v ->
+                        startActivity(new Intent(this, ManagePasswordTipsActivity.class))
+                );
+            }
+
         } else {
+            // User Layout
             setContentView(R.layout.landing_page_user);
+
+            Button testPasswordBtn = findViewById(R.id.testPasswordBtn);
+            if (testPasswordBtn != null) {
+                testPasswordBtn.setOnClickListener(v ->
+                        startActivity(PasswordTestActivity.intentFactory(this))
+                );
+            }
+
         }
 
+        // Shared UI (both pages have this)
         TextView welcomeTextView = findViewById(R.id.textView);
         welcomeTextView.setText("Welcome " + username);
 
@@ -38,8 +82,17 @@ public class LandingPage extends AppCompatActivity {
         });
 
         Button BtnNewPassLock = findViewById(R.id.newPassLockBtn);
-        BtnNewPassLock.setOnClickListener(v -> {
-            startActivity(new Intent(this, NewPassLockActivity.class));
-        });
+        if (BtnNewPassLock != null) {
+            BtnNewPassLock.setOnClickListener(v -> {
+                startActivity(new Intent(this, NewPassLockActivity.class));
+            });
+        }
+
+        Button managePasswordTipsBtn = findViewById(R.id.managePasswordTipsBtn);
+        if (managePasswordTipsBtn != null) {
+            managePasswordTipsBtn.setOnClickListener(v ->
+                    startActivity(new Intent(this, PasswordTestActivity.class))
+            );
+        }
     }
 }

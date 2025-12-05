@@ -8,4 +8,14 @@
     <string name="passlock">PassLock</string>
     <string name="login">Login</string>
     <string name="create_account">Create Account</string>
+    <string name="passlock_login"><![CDATA[PASSLOCK <Login>]]></string>
+    <string name="username"><![CDATA[> username]]></string>
+    <string name="password"><![CDATA[> password]]></string>
+    <string name="enter">ENTER</string>
+    <string name="test_a_password">Test a Password</string>
+    <string name="log_out">Log Out</string>
+    <string name="enter_password">Enter password</string>
+    <string name="test_strength">Test Strength</string>
+    <string name="score">Score:</string>
+    <string name="feedback">Feedback:</string>
 </resources>

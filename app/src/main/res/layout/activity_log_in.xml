@@ -5,47 +5,72 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/hackerBackground">
 
+    <!-- APP TITLE -->
     <TextView
         android:id="@+id/tv_app_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PassLock"
-        android:textSize="24sp"
+        android:text ="@string/passlock_login"
+        android:textSize="26sp"
         android:textStyle="bold"
+        android:textColor="@color/hackerGreen"
+        android:typeface="monospace"
         android:layout_marginBottom="24dp" />
 
+    <!-- USERNAME -->
     <EditText
         android:id="@+id/et_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
+        android:autofillHints=""
+        android:hint="@string/username"
+        android:textColor="@color/hackerGreen"
+        android:textColorHint="@color/hackerMutedGreen"
+        android:backgroundTint="@color/hackerAccent"
+        android:typeface="monospace"
         android:inputType="textPersonName"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:padding="8dp" />
 
+    <!-- PASSWORD -->
     <EditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:autofillHints=""
+        android:hint="@string/password"
+        android:textColor="@color/hackerGreen"
+        android:textColorHint="@color/hackerMutedGreen"
+        android:backgroundTint="@color/hackerAccent"
+        android:typeface="monospace"
         android:inputType="textPassword"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="24dp"
+        android:padding="8dp" />
 
+    <!-- LOGIN BUTTON -->
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        android:text="@string/enter"
+        android:textAllCaps="true"
+        android:textColor="@color/hackerAccent"
+        android:typeface="monospace"
+        android:background="@drawable/hacker_button_outline"
+        android:padding="12dp" />
 
+    <!-- ERROR MESSAGE -->
     <TextView
         android:id="@+id/tv_error_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@color/hackerExitRed"
+        android:typeface="monospace"
+        android:textSize="14sp"
         android:layout_marginTop="12dp"
         android:visibility="gone" />
 
 </LinearLayout>
-
-
