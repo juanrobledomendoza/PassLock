@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="recycler_suggestions" type="id" />
+    <item name="btn_toggle_all_suggestions" type="id" />
+    <item name="btn_back_from_edit_suggestions" type="id" />
+    <item name="tv_edit_suggested_title" type="id" />
+    <item name="tv_edit_suggested_subtitle" type="id" />
+    <item name="recycler_compare" type="id" />
+    <item name="btn_back_from_compare" type="id" />
+    <item name="tv_compare_subtitle" type="id" />
+    <item name="tv_compare_title" type="id" />
+    <item name="tv_view_users_title" type="id" />
+    <item name="tv_view_users_subtitle" type="id" />
+    <item name="recycler_users" type="id" />
+    <item name="btn_back_from_view_users" type="id" />
+</resources>
