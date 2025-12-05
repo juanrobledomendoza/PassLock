@@ -14,4 +14,8 @@
     <item name="recycler_users" type="id" />
     <item name="btn_back_from_view_users" type="id" />
     <item name="managePasswordTipsBtn" type="id" />
+    <item name="tv_banner" type="id" />
+    <item name="tv_description" type="id" />
+    <item name="loginButton" type="id" />
+    <item name="createAccountButton" type="id" />
 </resources>

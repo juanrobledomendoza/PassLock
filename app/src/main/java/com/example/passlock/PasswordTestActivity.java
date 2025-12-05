@@ -44,6 +44,12 @@ public class PasswordTestActivity extends AppCompatActivity {
 
         // Button logic
         btnTest.setOnClickListener(v -> testPassword());
+
+        Button btnBackToLanding = findViewById(R.id.btnBackToLanding);
+        btnBackToLanding.setOnClickListener(v ->
+                startActivity(new Intent(this, LandingPage.class))
+        );
+
     }
 
     private void testPassword() {
