@@ -101,18 +101,6 @@
             android:background="@drawable/hacker_button_outline"
             android:padding="10dp" />
 
-        <Button
-            android:id="@+id/managePasswordTipsBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="MANAGE PASSWORD TIPS"
-            android:textAllCaps="true"
-            android:textColor="@color/hackerAccent"
-            android:typeface="monospace"
-            android:background="@drawable/hacker_button_outline"
-            android:padding="10dp" />
-
     </LinearLayout>
 
     <!-- EXIT Button (Anchored at bottom, shares ID with user layout for logout) -->
