@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hackerBackground"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ViewUserPasslocksActivity">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/tv_view_users_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="> USER PASSLOCKS"
+        android:textSize="20sp"
+        android:textColor="@color/hackerGreen"
+        android:typeface="monospace"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tv_view_users_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select a user to inspect or delete."
+        android:textSize="14sp"
+        android:textColor="@color/hackerMutedGreen"
+        android:typeface="monospace"
+        android:layout_marginBottom="16dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/hackerAccent"
+        android:layout_marginBottom="12dp" />
+
+    <!-- User list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_users"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="4dp" />
+
+    <!-- Optional back button -->
+    <Button
+        android:id="@+id/btn_back_from_view_users"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BACK TO ADMIN"
+        android:textAllCaps="true"
+        android:textColor="@color/hackerAccent"
+        android:typeface="monospace"
+        android:background="@drawable/hacker_button_outline"
+        android:padding="10dp"
+        android:layout_marginTop="12dp" />
+
+</LinearLayout>
