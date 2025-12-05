@@ -3,39 +3,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center"
     android:orientation="vertical"
     android:padding="24dp"
+    android:background="@color/hackerBackground"
     tools:context=".MainActivity">
 
+    <!-- Terminal-style banner -->
+    <TextView
+        android:id="@+id/tv_banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="> PASSLOCK SYSTEM v1.0"
+        android:textSize="20sp"
+        android:textColor="@color/hackerGreen"
+        android:typeface="monospace"
+        android:layout_marginBottom="12dp" />
 
+    <!-- Subtitle / description -->
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Secure. Encrypt. Protect.\nYour digital vault awaits."
+        android:textSize="14sp"
+        android:textColor="@color/hackerMutedGreen"
+        android:typeface="monospace"
+        android:layout_marginBottom="40dp" />
 
+    <!-- Divider line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/hackerAccent"
+        android:layout_marginBottom="40dp" />
+
+    <!-- Main title (stylized) -->
     <TextView
         android:id="@+id/textView"
-        android:layout_width="155dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="44dp"
-        android:text="@string/passlock"
-        android:textSize="32sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PASSLOCK ACCESS"
+        android:textSize="28sp"
+        android:layout_marginBottom="40dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:typeface="monospace"
+        android:textColor="@color/hackerGreen" />
 
+    <!-- LOGIN BUTTON -->
     <Button
         android:id="@+id/loginButton"
-        android:text="@string/login"
+        android:text="ENTER SYSTEM"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/hackerAccent"
+        android:textAllCaps="true"
+        android:typeface="monospace"
+        android:background="@drawable/hacker_button_outline"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
 
+    <!-- CREATE ACCOUNT BUTTON -->
     <Button
         android:id="@+id/createAccountButton"
+        android:text="CREATE ACCOUNT"
         android:layout_width="match_parent"
-        android:text="@string/create_account"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+        android:textColor="@color/hackerAccent"
+        android:textAllCaps="true"
+        android:typeface="monospace"
+        android:background="@drawable/hacker_button_outline"
+        android:padding="12dp" />
 
 </LinearLayout>

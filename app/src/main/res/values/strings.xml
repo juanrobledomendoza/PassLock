@@ -8,4 +8,8 @@
     <string name="passlock">PassLock</string>
     <string name="login">Login</string>
     <string name="create_account">Create Account</string>
+    <string name="passlock_login"><![CDATA[PASSLOCK <Login>]]></string>
+    <string name="username"><![CDATA[> username]]></string>
+    <string name="password"><![CDATA[> password]]></string>
+    <string name="enter">ENTER</string>
 </resources>

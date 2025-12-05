@@ -2,5 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="pageBackground">#075185</color>
+    <color name="hackerBackground">#050810</color>      <!-- almost black -->
+    <color name="hackerCardBackground">#111820</color>  <!-- dark panel -->
+
+    <!-- Text -->
+    <color name="hackerGreen">#39FF14</color>           <!-- neon green -->
+    <color name="hackerMutedGreen">#8AE6A8</color>      <!-- softer green -->
+
+    <!-- Accent / danger -->
+    <color name="hackerAccent">#00C853</color>          <!-- button green -->
+    <color name="hackerExitRed">#FF5252</color>
 </resources>
