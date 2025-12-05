@@ -13,4 +13,5 @@
     <item name="tv_view_users_subtitle" type="id" />
     <item name="recycler_users" type="id" />
     <item name="btn_back_from_view_users" type="id" />
+    <item name="managePasswordTipsBtn" type="id" />
 </resources>

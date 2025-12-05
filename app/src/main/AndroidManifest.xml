@@ -29,6 +29,7 @@
         <activity
             android:name=".NewPassLockActivity"
             android:exported="false" />
+        <activity android:name=".PasswordTestActivity" />
     </application>
 
 </manifest>
