@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.passlock.data.PasswordTest;
-
 public class LandingPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +40,7 @@ public class LandingPage extends AppCompatActivity {
             Button compareUserPasslocksBtn = findViewById(R.id.compareUserPasslocksBtn);
             if (compareUserPasslocksBtn != null) {
                 compareUserPasslocksBtn.setOnClickListener(v ->
-                        startActivity(new Intent(this, ComparePasslocksActivity.class))
+                        startActivity(new Intent(this, ComparePasswordsActivity.class))
                 );
             }
 
@@ -64,6 +62,12 @@ public class LandingPage extends AppCompatActivity {
                 );
             }
 
+            Button compareBtn = findViewById(R.id.comparePassLockBtn);
+            if (compareBtn != null) {
+                compareBtn.setOnClickListener(v ->
+                        startActivity(new Intent(this, ComparePasswordsActivity.class))
+                );
+            }
         }
 
         // Shared UI (both pages have this)

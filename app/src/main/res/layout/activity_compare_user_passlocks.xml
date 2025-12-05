@@ -6,14 +6,14 @@
     android:background="@color/hackerBackground"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".ComparePasslocksActivity">
+    tools:context=".ComparePasswordsActivity">
 
     <!-- Header -->
     <TextView
         android:id="@+id/tv_compare_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="> PASSWORD STRENGTH OVERVIEW"
+        android:text="@string/password_strength_overview"
         android:textSize="20sp"
         android:textColor="@color/hackerGreen"
         android:typeface="monospace"
@@ -23,7 +23,7 @@
         android:id="@+id/tv_compare_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Compare users by overall password grade."
+        android:text="@string/compare_users_by_overall_password_grade"
         android:textSize="14sp"
         android:textColor="@color/hackerMutedGreen"
         android:typeface="monospace"
@@ -46,7 +46,7 @@
         android:id="@+id/btn_back_from_compare"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BACK TO ADMIN"
+        android:text="@string/back_to_admin3"
         android:textAllCaps="true"
         android:textColor="@color/hackerAccent"
         android:typeface="monospace"
