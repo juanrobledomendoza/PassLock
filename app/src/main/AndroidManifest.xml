@@ -29,8 +29,18 @@
         <activity
             android:name=".NewPassLockActivity"
             android:exported="false" />
-        <activity android:name=".PasswordTestActivity" />
-        <activity android:name=".ComparePasswordsActivity" />
+
+        <!-- This activity was missing a declaration -->
+        <activity
+            android:name=".ViewPassLockActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".PasswordTestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComparePasswordsActivity"
+            android:exported="false" />
 
     </application>
 

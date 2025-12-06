@@ -62,6 +62,13 @@ public class LandingPage extends AppCompatActivity {
                 );
             }
 
+            Button viewPassLocksBtn = findViewById(R.id.previousPassLockBtn);
+            if (viewPassLocksBtn != null) {
+                viewPassLocksBtn.setOnClickListener(v ->
+                        startActivity(new Intent(this, ViewPassLockActivity.class))
+                );
+            }
+
             Button compareBtn = findViewById(R.id.comparePassLockBtn);
             if (compareBtn != null) {
                 compareBtn.setOnClickListener(v ->
