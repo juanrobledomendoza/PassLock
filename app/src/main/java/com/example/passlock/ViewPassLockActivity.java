@@ -30,7 +30,7 @@ public class ViewPassLockActivity extends AppCompatActivity {
 
         // Get user ID from SharedPreferences
         SharedPreferences prefs = getSharedPreferences(MainActivity.PREFS_NAME, MODE_PRIVATE);
-        int userId = prefs.getInt("userId", -1); // Make sure you save userId at login
+        int userId = prefs.getInt("userId", -1);
 
         if (userId != -1) {
             // Get database instance and DAO

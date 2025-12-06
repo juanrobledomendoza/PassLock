@@ -2,26 +2,38 @@ package com.example.passlock;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.passlock.data.PasswordTestRepository;
+import com.example.passlock.data.AppDatabase;
+import com.example.passlock.data.PassLock;
+import com.example.passlock.data.PassLockDao;
 import com.example.passlock.util.PasswordStrengthUtil;
 
 public class PasswordTestActivity extends AppCompatActivity {
 
+    public static final String EXTRA_PASSWORD = "com.example.passlock.PASSWORD_TO_TEST";
+    public static final String EXTRA_PASSLOCK_ID = "com.example.passlock.PASSLOCK_ID";
+
     private EditText inputPassword;
     private TextView txtScore, txtFeedback;
-    private PasswordTestRepository repo;
-    private int currentUserId;
+    private PassLockDao passLockDao;
+    private int passLockId = -1;
 
     public static Intent intentFactory(Context context) {
         return new Intent(context, PasswordTestActivity.class);
+    }
+
+    public static Intent intentFactory(Context context, String password, int passLockId) {
+        Intent intent = new Intent(context, PasswordTestActivity.class);
+        intent.putExtra(EXTRA_PASSWORD, password);
+        intent.putExtra(EXTRA_PASSLOCK_ID, passLockId);
+        return intent;
     }
 
     @Override
@@ -35,21 +47,25 @@ public class PasswordTestActivity extends AppCompatActivity {
         txtFeedback = findViewById(R.id.txtFeedback);
         Button btnTest = findViewById(R.id.btnTestPassword);
 
-        // Repository
-        repo = new PasswordTestRepository(this);
+        // Get database DAO
+        passLockDao = AppDatabase.getInstance(this).passLockDao();
 
-        // Get logged-in user
-        SharedPreferences prefs = getSharedPreferences(MainActivity.PREFS_NAME, MODE_PRIVATE);
-        currentUserId = prefs.getInt("userId", -1);
+        // Get PassLock ID and password from intent
+        if (getIntent().hasExtra(EXTRA_PASSLOCK_ID)) {
+            passLockId = getIntent().getIntExtra(EXTRA_PASSLOCK_ID, -1);
+            String passwordToTest = getIntent().getStringExtra(EXTRA_PASSWORD);
+            inputPassword.setText(passwordToTest);
+            testPassword(); // Automatically run the test
+        }
 
-        // Button logic
         btnTest.setOnClickListener(v -> testPassword());
 
         Button btnBackToLanding = findViewById(R.id.btnBackToLanding);
-        btnBackToLanding.setOnClickListener(v ->
-                startActivity(new Intent(this, LandingPage.class))
-        );
-
+        btnBackToLanding.setOnClickListener(v -> {
+            // Navigate back to the list, which will now be updated.
+            startActivity(new Intent(this, ViewPassLockActivity.class));
+            finish();
+        });
     }
 
     private void testPassword() {
@@ -61,18 +77,22 @@ public class PasswordTestActivity extends AppCompatActivity {
             return;
         }
 
-        // Score password
         int score = PasswordStrengthUtil.scorePassword(pwd);
-
-        // Generate feedback
         String feedback = PasswordStrengthUtil.generateFeedback(score);
 
         // Update UI
         txtScore.setText("Score: " + score);
         txtFeedback.setText("Feedback: " + feedback);
 
-        // Save to database
-        repo.saveTest(currentUserId, score, feedback);
+        // If we have a valid PassLock ID, update the record in the database.
+        if (passLockId != -1) {
+            PassLock passLockToUpdate = passLockDao.getPassLockById(passLockId);
+            if (passLockToUpdate != null) {
+                passLockToUpdate.setScore(score);
+                passLockToUpdate.setFeedback(feedback);
+                passLockDao.updatePassLock(passLockToUpdate);
+                Toast.makeText(this, "Score saved!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
-

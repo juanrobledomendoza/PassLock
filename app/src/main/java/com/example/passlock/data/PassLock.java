@@ -28,12 +28,21 @@ public class PassLock {
     @ColumnInfo(name = "password")
     private String password;
 
+    // New fields for score and feedback
+    @ColumnInfo(name = "score")
+    private int score;
+
+    @ColumnInfo(name = "feedback")
+    private String feedback;
+
 
     public PassLock(int userId, String serviceName, String username, String password) {
         this.userId = userId;
         this.serviceName = serviceName;
         this.username = username;
         this.password = password;
+        this.score = -1; // Default score indicates it hasn't been tested
+        this.feedback = "";
     }
 
     // --- Getters and Setters ---
@@ -60,5 +69,21 @@ public class PassLock {
 
     public int getUserId() {
         return userId;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
     }
 }

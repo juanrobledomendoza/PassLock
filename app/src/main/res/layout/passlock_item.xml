@@ -20,10 +20,29 @@
         android:text="Username"
         android:textSize="16sp" />
 
+    <!-- TextView for Score (initially hidden) -->
+    <TextView
+        android:id="@+id/textViewScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Score: 100"
+        android:visibility="gone"
+        android:textStyle="bold"/>
+
+    <!-- TextView for Feedback (initially hidden) -->
+    <TextView
+        android:id="@+id/textViewFeedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feedback: Excellent!"
+        android:visibility="gone" />
+
     <Button
         android:id="@+id/buttonFeedback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password Feedback" />
+        android:layout_marginTop="8dp"
+        android:text="Test Password" />
 
 </LinearLayout>

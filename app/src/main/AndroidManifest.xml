@@ -21,9 +21,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ViewPassLockActivity"
-            android:exported="false"></activity>
-        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
@@ -32,11 +29,9 @@
         <activity
             android:name=".NewPassLockActivity"
             android:exported="false" />
-        <activity
-            android:name=".SuggestPasswordsActivity"
-            android:exported="false" />
+        <activity android:name=".PasswordTestActivity" />
+        <activity android:name=".ComparePasswordsActivity" />
+
     </application>
-    
-    
 
 </manifest>
