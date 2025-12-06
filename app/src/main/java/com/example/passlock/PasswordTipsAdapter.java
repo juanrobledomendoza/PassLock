@@ -20,7 +20,7 @@ public class PasswordTipsAdapter extends RecyclerView.Adapter<PasswordTipsAdapte
     @Override
     public TipViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(android.R.layout.simple_list_item_1, parent, false);
+                .inflate(R.layout.item_password_tip, parent, false);
         return new TipViewHolder(view);
     }
 
@@ -35,11 +35,12 @@ public class PasswordTipsAdapter extends RecyclerView.Adapter<PasswordTipsAdapte
     }
 
     static class TipViewHolder extends RecyclerView.ViewHolder {
+
         TextView textView;
 
         public TipViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(android.R.id.text1);
+            textView = itemView.findViewById(R.id.tipTextView);
         }
     }
 }
