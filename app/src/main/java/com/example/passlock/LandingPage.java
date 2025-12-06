@@ -61,6 +61,12 @@ public class LandingPage extends AppCompatActivity {
                         startActivity(PasswordTestActivity.intentFactory(this))
                 );
             }
+            Button tipsBtn = findViewById(R.id.viewPasswordTipsBtn);
+            if (tipsBtn != null) {
+                tipsBtn.setOnClickListener(v ->
+                        startActivity(PasswordTipsActivity.intentFactory(this))
+                );
+            }
 
             Button viewPassLocksBtn = findViewById(R.id.previousPassLockBtn);
             if (viewPassLocksBtn != null) {
