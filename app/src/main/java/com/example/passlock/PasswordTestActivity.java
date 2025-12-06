@@ -60,11 +60,12 @@ public class PasswordTestActivity extends AppCompatActivity {
 
         btnTest.setOnClickListener(v -> testPassword());
 
-        Button btnBackToLanding = findViewById(R.id.btnBackToLanding);
-        btnBackToLanding.setOnClickListener(v -> {
-            // Navigate back to the list, which will now be updated.
-            startActivity(new Intent(this, ViewPassLockActivity.class));
-            finish();
+        Button btnBack = findViewById(R.id.btnBackToLanding);
+        btnBack.setOnClickListener(v -> {
+            // Place user back to the landing screen
+            Intent intent = new Intent(this, LandingPage.class);
+            startActivity(intent);
+
         });
     }
 
