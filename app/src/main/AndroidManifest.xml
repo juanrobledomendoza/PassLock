@@ -30,7 +30,9 @@
             android:name=".NewPassLockActivity"
             android:exported="false" />
 
-        <!-- This activity was missing a declaration -->
+        <activity
+            android:name=".SuggestPasswordsActivity"
+            android:exported="false" />
         <activity
             android:name=".ViewPassLockActivity"
             android:exported="false" />
