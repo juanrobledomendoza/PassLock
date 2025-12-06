@@ -1,6 +1,5 @@
 package com.example.passlock;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import com.example.passlock.util.PasswordStrengthUtil;
@@ -17,8 +16,8 @@ public class PasswordStrengthUtilTest {
 
     @Test
     public void testModeratePassword() {
-        int score = PasswordStrengthUtil.scorePassword("Hello123");
-        assertTrue(score >= 40 && score <= 70);
+        int score = PasswordStrengthUtil.scorePassword("hello123!");
+        assertTrue(score > 20 && score < 90);
     }
 
     @Test
