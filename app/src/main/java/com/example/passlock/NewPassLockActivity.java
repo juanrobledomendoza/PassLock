@@ -2,6 +2,7 @@ package com.example.passlock;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
@@ -25,8 +26,11 @@ public class NewPassLockActivity extends AppCompatActivity {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.activity_new_passlock);
 
+          //Get the current user's ID from the sharedPreferences
+          SharedPreferences prefs = getSharedPreferences(MainActivity.PREFS_NAME, MODE_PRIVATE);
+          currentUserId = prefs.getInt("userId", -1);
+
           // --- IMPORTANT SAFETY CHECK ---
-          // If we can't find a valid user ID, show an error and close this screen.
           if (currentUserId == -1) {
                Toast.makeText(this, "Error: Could not identify user.", Toast.LENGTH_LONG).show();
                finish();
@@ -36,14 +40,10 @@ public class NewPassLockActivity extends AppCompatActivity {
           // Get the DAO from our database
           passLockDao = AppDatabase.getInstance(getApplicationContext()).passLockDao();
 
-          //Get the current user's ID from the sharedPreferences
-          SharedPreferences prefs = getSharedPreferences(MainActivity.PREFS_NAME, MODE_PRIVATE);
-
           serviceNameEditText = findViewById(R.id.editTextServiceName);
           usernameEditText = findViewById(R.id.editTextUsername);
           passwordEditText = findViewById(R.id.editTextPassword);
          Button saveButton = findViewById(R.id.saveButton);
-          currentUserId = prefs.getInt("userId", -1);
 
           saveButton.setOnClickListener(v -> {
                String serviceName = serviceNameEditText.getText().toString().trim();
@@ -64,7 +64,13 @@ public class NewPassLockActivity extends AppCompatActivity {
                     Toast.makeText(NewPassLockActivity.this, "Error saving PassLock", Toast.LENGTH_SHORT).show();
                }
           });
+
+         // Set up the back button
+         Button backButton = findViewById(R.id.btn_back_to_landing_from_new);
+         backButton.setOnClickListener(v -> {
+             Intent intent = new Intent(NewPassLockActivity.this, LandingPage.class);
+             startActivity(intent);
+             finish(); // Finish this activity so the user can't navigate back to it
+         });
      }
-     
-     
 }

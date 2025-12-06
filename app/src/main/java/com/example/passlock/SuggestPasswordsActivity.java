@@ -3,6 +3,7 @@ package com.example.passlock;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -41,6 +42,14 @@ public class SuggestPasswordsActivity extends AppCompatActivity {
         copyButtonOne.setOnClickListener(v -> copyToClipboard(pass1));
         copyButtonTwo.setOnClickListener(v -> copyToClipboard(pass2));
         copyButtonThree.setOnClickListener(v -> copyToClipboard(pass3));
+
+        // Set up the back button
+        Button backButton = findViewById(R.id.btn_back_to_landing_from_suggest);
+        backButton.setOnClickListener(v -> {
+            Intent intent = new Intent(SuggestPasswordsActivity.this, LandingPage.class);
+            startActivity(intent);
+            finish(); // Finish this activity so the user can't navigate back to it
+        });
     }
 
     private void copyToClipboard(String password) {

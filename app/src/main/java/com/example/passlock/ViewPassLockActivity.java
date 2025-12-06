@@ -1,7 +1,9 @@
 package com.example.passlock;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -44,5 +46,13 @@ public class ViewPassLockActivity extends AppCompatActivity {
             adapter = new PassLockAdapter(passLockList);
             recyclerView.setAdapter(adapter);
         }
+
+        // Set up the back button
+        Button backButton = findViewById(R.id.btn_back_to_landing);
+        backButton.setOnClickListener(v -> {
+            Intent intent = new Intent(ViewPassLockActivity.this, LandingPage.class);
+            startActivity(intent);
+            finish(); // Finish this activity so the user can't navigate back to it
+        });
     }
 }
