@@ -13,5 +13,8 @@ public interface UserDao {
 
     @Query("SELECT * FROM users WHERE username = :username AND password = :password LIMIT 1")
     User getUserByUsernameAndPassword(String username, String password);
+
+    @Query("SELECT * FROM users ORDER BY username ASC")
+    java.util.List<User> getAllUsers();
 }
 
