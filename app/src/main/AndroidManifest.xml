@@ -44,6 +44,16 @@
             android:name=".ComparePasswordsActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".ViewUserPasslocksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditSuggestedPasslocksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ManagePasswordTipsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
