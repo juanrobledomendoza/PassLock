@@ -35,6 +35,18 @@
         android:background="@color/hackerAccent"
         android:layout_marginBottom="12dp" />
 
+    <!-- Search field -->
+    <EditText
+        android:id="@+id/et_search_users"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search users"
+        android:textColor="@color/hackerAccent"
+        android:textColorHint="@color/hackerMutedGreen"
+        android:background="@android:color/transparent"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp" />
+
     <!-- User list -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_users"

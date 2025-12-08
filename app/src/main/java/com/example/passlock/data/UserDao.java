@@ -4,6 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Delete;
 
 @Dao
 public interface UserDao {
@@ -16,5 +17,8 @@ public interface UserDao {
 
     @Query("SELECT * FROM users ORDER BY username ASC")
     java.util.List<User> getAllUsers();
+
+    @Delete
+    void deleteUser(User user);
 }
 
