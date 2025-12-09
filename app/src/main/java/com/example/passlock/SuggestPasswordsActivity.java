@@ -59,7 +59,7 @@ public class SuggestPasswordsActivity extends AppCompatActivity {
         Toast.makeText(this, "Password copied to clipboard", Toast.LENGTH_SHORT).show();
     }
 
-    private String generateStrongPassword() {
+    public static String generateStrongPassword() {
         String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String lower = "abcdefghijklmnopqrstuvwxyz";
         String digits = "0123456789";
