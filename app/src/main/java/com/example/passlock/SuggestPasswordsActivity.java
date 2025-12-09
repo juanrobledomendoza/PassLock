@@ -4,12 +4,17 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.passlock.data.AppDatabase;
+import com.example.passlock.data.User;
+import com.example.passlock.data.UserDao;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -22,6 +27,29 @@ public class SuggestPasswordsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggest_passwords);
+
+        // Check if suggestions are enabled for this user
+        SharedPreferences prefs = getSharedPreferences(MainActivity.PREFS_NAME, MODE_PRIVATE);
+        int userId = prefs.getInt("userId", -1);
+
+        if (userId != -1) {
+            UserDao userDao = AppDatabase.getInstance(this).userDao();
+            java.util.List<User> users = userDao.getAllUsers();
+            User currentUser = null;
+            for (User u : users) {
+                if (u.getUserId() == userId) {
+                    currentUser = u;
+                    break;
+                }
+            }
+
+            if (currentUser != null && !currentUser.isSuggestionsEnabled()) {
+                Toast.makeText(this, "Password suggestions are disabled by your admin.", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(this, LandingPage.class));
+                finish();
+                return;
+            }
+        }
 
         TextView passwordOne = findViewById(R.id.password_one);
         TextView passwordTwo = findViewById(R.id.password_two);
