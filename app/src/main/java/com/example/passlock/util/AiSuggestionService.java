@@ -25,7 +25,10 @@ public class AiSuggestionService {
 
     @Nullable
     public static String getPasswordTipSync(String password, int score, String feedback) {
-        String apiKey = "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";
+        String apiKey ="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" ;
+        if (apiKey == null || apiKey.isEmpty()) {
+            return null;
+        }
 
         JSONObject root = new JSONObject();
         try {
