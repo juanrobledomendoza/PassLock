@@ -44,6 +44,7 @@
             android:name=".ComparePasswordsActivity"
             android:exported="false" />
         <activity android:name=".PasswordTipsActivity" />
+        <activity android:name=".CreateAccountActivity" />
 
     </application>
 
