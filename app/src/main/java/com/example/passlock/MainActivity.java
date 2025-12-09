@@ -3,6 +3,7 @@ package com.example.passlock;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,9 @@ import com.example.passlock.data.PassLock;
 import com.example.passlock.data.PassLockDao;
 import com.example.passlock.data.User;
 import com.example.passlock.data.UserDao;
+import com.example.passlock.util.SupabaseUsers;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +35,20 @@ public class MainActivity extends AppCompatActivity {
         boolean isLoggedIn = prefs.getBoolean("isLoggedIn", false);
 
         seedSampleDataIfNeeded();
+        new Thread(() -> {
+            // 1. Get the seeded users from your local Room database
+            UserDao userDao = AppDatabase.getInstance(this).userDao();
+            List<User> allUsers = userDao.getAllUsers();
+
+            // 2. Send them to Supabase using your fixed SupabaseUsers class
+            if (allUsers != null && !allUsers.isEmpty()) {
+                Log.d("SupabaseSync", "Found " + allUsers.size() + " users locally. Syncing to Supabase.");
+                // Call the syncUsers method you already wrote
+                SupabaseUsers.syncUsers(allUsers);
+            } else {
+                Log.d("SupabaseSync", "No local users found to sync.");
+            }
+        }).start();
 //
 //        if (isLoggedIn) {
 //            startActivity(new Intent(this, LandingPage.class));
