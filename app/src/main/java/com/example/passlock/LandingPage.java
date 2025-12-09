@@ -40,7 +40,7 @@ public class LandingPage extends AppCompatActivity {
             Button compareUserPasslocksBtn = findViewById(R.id.compareUserPasslocksBtn);
             if (compareUserPasslocksBtn != null) {
                 compareUserPasslocksBtn.setOnClickListener(v ->
-                        startActivity(new Intent(this, ComparePasswordsActivity.class))
+                        startActivity(new Intent(this, CompareUserWalletActivity.class))
                 );
             }
 

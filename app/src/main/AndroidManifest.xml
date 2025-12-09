@@ -54,6 +54,10 @@
             android:name=".ManagePasswordTipsActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".CompareUserWalletActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
