@@ -43,4 +43,5 @@
     <string name="compare_users_by_overall_password_grade">Compare users by overall password grade.</string>
     <string name="back_to_admin3">BACK TO ADMIN</string>
     <string name="password_safety_tips">Password Safety Tips</string>
+    <string name="send_notification">Send Notification</string>
 </resources>
