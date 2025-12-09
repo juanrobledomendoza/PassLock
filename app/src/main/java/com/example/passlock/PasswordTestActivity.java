@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.passlock.data.AppDatabase;
 import com.example.passlock.data.PassLock;
 import com.example.passlock.data.PassLockDao;
+import com.example.passlock.util.AiSuggestionService;
 import com.example.passlock.util.PasswordStrengthUtil;
 
 public class PasswordTestActivity extends AppCompatActivity {
@@ -21,7 +22,7 @@ public class PasswordTestActivity extends AppCompatActivity {
     public static final String EXTRA_PASSLOCK_ID = "com.example.passlock.PASSLOCK_ID";
 
     private EditText inputPassword;
-    private TextView txtScore, txtFeedback;
+    private TextView txtScore, txtFeedback, txtAiTip;
     private PassLockDao passLockDao;
     private int passLockId = -1;
 
@@ -45,6 +46,7 @@ public class PasswordTestActivity extends AppCompatActivity {
         inputPassword = findViewById(R.id.inputPassword);
         txtScore = findViewById(R.id.txtScore);
         txtFeedback = findViewById(R.id.txtFeedback);
+        txtAiTip = findViewById(R.id.txtAiTip);
         Button btnTest = findViewById(R.id.btnTestPassword);
 
         // Get database DAO
@@ -84,6 +86,17 @@ public class PasswordTestActivity extends AppCompatActivity {
         // Update UI
         txtScore.setText("Score: " + score);
         txtFeedback.setText("Feedback: " + feedback);
+
+        // Reset AI tip while loading
+        txtAiTip.setText("");
+
+        // Fire off AI suggestion on a background thread to avoid blocking UI
+        new Thread(() -> {
+            String aiTip = AiSuggestionService.getPasswordTipSync(pwd, score, feedback);
+            if (aiTip != null && !aiTip.trim().isEmpty()) {
+                runOnUiThread(() -> txtAiTip.setText("AI Tip: " + aiTip.trim()));
+            }
+        }).start();
 
         // If we have a valid PassLock ID, update the record in the database.
         if (passLockId != -1) {
