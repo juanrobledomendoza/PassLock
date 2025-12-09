@@ -37,18 +37,17 @@ public class LoginActivity extends AppCompatActivity {
         tvErrorMessage = findViewById(R.id.tv_error_message);
         Button btnLogin = findViewById(R.id.btn_login);
 
+
+
         btnLogin.setOnClickListener(v -> handleLogin());
     }
 
     private void seedUsers() {
         // Check if users already exist to avoid duplicates
-        User admin1 = userRepository.login("Admin1", "admin123");
-        User test1 = userRepository.login("Test1", "test123");
-
-        if (admin1 == null) {
+        if (userRepository.getUserByUsername("Admin1") == null) {
             userRepository.createUser("Admin1", "admin123", true);
         }
-        if (test1 == null) {
+        if (userRepository.getUserByUsername("Test1") == null) {
             userRepository.createUser("Test1", "test123", false);
         }
     }

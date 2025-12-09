@@ -3,8 +3,9 @@ package com.example.passlock.data;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.ColumnInfo;
+import androidx.room.Index;
 
-@Entity(tableName = "users")
+@Entity(tableName = "users", indices = {@Index(value = {"username"}, unique = true)})
 public class User {
 
     @PrimaryKey(autoGenerate = true)

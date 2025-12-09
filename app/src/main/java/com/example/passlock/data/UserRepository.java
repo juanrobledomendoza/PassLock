@@ -19,5 +19,8 @@ public class UserRepository {
         User user = new User(username, password, isAdmin);
         return userDao.insertUser(user);
     }
-}
 
+    public User getUserByUsername(String username) {
+        return userDao.getUserByUsername(username);
+    }
+}
