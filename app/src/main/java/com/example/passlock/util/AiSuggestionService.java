@@ -1,5 +1,7 @@
 package com.example.passlock.util;
 
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 
 import org.json.JSONArray;
@@ -23,7 +25,7 @@ public class AiSuggestionService {
 
     @Nullable
     public static String getPasswordTipSync(String password, int score, String feedback) {
-        String apiKey ="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" ;
+        String apiKey ="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" ;
         if (apiKey == null || apiKey.isEmpty()) {
             return null;
         }
@@ -67,9 +69,15 @@ public class AiSuggestionService {
 
         try (Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful() || response.body() == null) {
+                Log.e("AiSuggestionService", "OpenAI request failed: code=" + response.code());
+                if (response.body() != null) {
+                    String errorBody = response.body().string();
+                    Log.e("AiSuggestionService", "Error body: " + errorBody);
+                }
                 return null;
             }
             String respStr = response.body().string();
+            Log.d("AiSuggestionService", "OpenAI response: " + respStr);
             JSONObject respJson = new JSONObject(respStr);
             JSONArray choices = respJson.optJSONArray("choices");
             if (choices == null || choices.length() == 0) return null;
@@ -78,6 +86,7 @@ public class AiSuggestionService {
             if (message == null) return null;
             return message.optString("content", null);
         } catch (IOException | JSONException e) {
+            Log.e("AiSuggestionService", "Exception calling OpenAI", e);
             return null;
         }
     }

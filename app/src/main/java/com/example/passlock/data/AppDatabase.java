@@ -11,7 +11,7 @@ import androidx.room.RoomDatabase;
                 User.class,
                 PassLock.class
         },
-        version = 5, // Incremented version number
+        version = 6, // Bump version after schema/DAO changes
         exportSchema = false
 )
 public abstract class AppDatabase extends RoomDatabase {
