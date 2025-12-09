@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/hackerBackground">
 
     <TextView
         android:id="@+id/textViewServiceName"
@@ -11,14 +12,18 @@
         android:layout_height="wrap_content"
         android:text="Service Name"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/hackerGreen"
+        android:typeface="monospace" />
 
     <TextView
         android:id="@+id/textViewUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Username"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@color/hackerGreen"
+        android:typeface="monospace" />
 
     <!-- TextView for Score (initially hidden) -->
     <TextView
@@ -28,7 +33,9 @@
         android:layout_marginTop="8dp"
         android:text="Score: 100"
         android:visibility="gone"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/hackerGreen"
+        android:typeface="monospace"/>
 
     <!-- TextView for Feedback (initially hidden) -->
     <TextView
@@ -36,13 +43,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Feedback: Excellent!"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:textColor="@color/hackerGreen"
+        android:typeface="monospace" />
 
     <Button
         android:id="@+id/buttonFeedback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Test Password" />
+        android:text="Test Password"
+        android:background="@drawable/hacker_button_outline"
+        android:textColor="@color/hackerAccent"
+        android:textAllCaps="true"
+        android:typeface="monospace" />
 
 </LinearLayout>

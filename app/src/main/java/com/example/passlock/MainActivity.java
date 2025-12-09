@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
         loginButton.setOnClickListener(v ->
                 startActivity(new Intent(this, LoginActivity.class)));
+        createAccountButton.setOnClickListener(v ->
+                startActivity(new Intent(this, CreateAccountActivity.class)));
+
 
 //        createAccountButton.setOnClickListener(v ->
 ////                startActivity(new Intent(this, CreateAccountActivity.class)));

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/hackerBackground"
     tools:context=".NewPassLockActivity">
 
     <ImageView
@@ -18,7 +19,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_lock_lock" />
+        app:srcCompat="@android:drawable/ic_lock_lock"
+        app:tint="@color/hackerGreen" />
 
     <TextView
         android:id="@+id/textView"
@@ -29,8 +31,10 @@
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="608dp"
         android:text="@string/passlock"
+        android:textColor="@color/hackerGreen"
         android:textSize="32sp"
         android:textStyle="bold"
+        android:typeface="monospace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,8 +47,12 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/hackerAccent"
         android:hint="@string/service_name_e_g_google"
         android:inputType="text"
+        android:textColor="@color/hackerGreen"
+        android:textColorHint="@color/hackerMutedGreen"
+        android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/imageView" />
@@ -56,8 +64,12 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/hackerAccent"
         android:hint="@string/username_or_email"
         android:inputType="textEmailAddress"
+        android:textColor="@color/hackerGreen"
+        android:textColorHint="@color/hackerMutedGreen"
+        android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextServiceName" />
@@ -69,8 +81,12 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/hackerAccent"
         android:hint="@string/password2"
         android:inputType="textPassword"
+        android:textColor="@color/hackerGreen"
+        android:textColorHint="@color/hackerMutedGreen"
+        android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
@@ -82,7 +98,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/hacker_button_outline"
         android:text="@string/save_passlock"
+        android:textAllCaps="true"
+        android:textColor="@color/hackerAccent"
+        android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
@@ -94,7 +114,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/hacker_button_outline"
         android:text="Back to Landing Page"
+        android:textAllCaps="true"
+        android:textColor="@color/hackerAccent"
+        android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/saveButton" />
