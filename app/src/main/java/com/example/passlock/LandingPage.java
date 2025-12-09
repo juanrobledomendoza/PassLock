@@ -6,7 +6,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-
+import com.example.passlock.data.AppDatabase;
+import com.example.passlock.data.User;
+import com.example.passlock.util.SupabaseUsers;
+import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LandingPage extends AppCompatActivity {
@@ -17,6 +20,23 @@ public class LandingPage extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences(MainActivity.PREFS_NAME, MODE_PRIVATE);
         boolean isAdmin = prefs.getBoolean("isAdmin", false);
         String username = prefs.getString("username", "User");
+        
+        // Test the connection first
+        System.out.println("=== Starting Supabase Connection Test ===");
+        SupabaseUsers.testConnection();
+        
+        // Then try to sync users
+        new Thread(() -> {
+            try {
+                AppDatabase db = AppDatabase.getInstance(LandingPage.this);
+                List<User> allUsers = db.userDao().getAllUsers();
+                System.out.println("Found " + allUsers.size() + " users to sync");
+                SupabaseUsers.syncUsers(allUsers);
+            } catch (Exception e) {
+                System.out.println("Error in user sync thread: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }).start();
 
         // Checks and loads appropriate layout/landing page.
         if (isAdmin) {
