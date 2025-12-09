@@ -16,6 +16,7 @@ import com.example.passlock.data.AppDatabase;
 import com.example.passlock.data.User;
 import com.example.passlock.data.UserDao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ViewUserPasslocksActivity extends AppCompatActivity {
@@ -60,8 +61,14 @@ public class ViewUserPasslocksActivity extends AppCompatActivity {
     }
 
     private void reloadUsers() {
-        List<User> users = userDao.getAllUsers();
-        adapter.setUsers(users);
+        List<User> allUsers = userDao.getAllUsers();
+        List<User> nonAdminUsers = new ArrayList<>();
+        for (User u : allUsers) {
+            if (!u.isAdmin()) {
+                nonAdminUsers.add(u);
+            }
+        }
+        adapter.setUsers(nonAdminUsers);
     }
 
     private void confirmAndDeleteUser(User user) {
