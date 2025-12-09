@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -61,6 +62,12 @@ public class LandingPage extends AppCompatActivity {
                         startActivity(PasswordTestActivity.intentFactory(this))
                 );
             }
+            Button tipsBtn = findViewById(R.id.viewPasswordTipsBtn);
+            if (tipsBtn != null) {
+                tipsBtn.setOnClickListener(v ->
+                        startActivity(PasswordTipsActivity.intentFactory(this))
+                );
+            }
 
             Button suggestPasswordBtn = findViewById(R.id.suggestPassLockBtn);
             if (suggestPasswordBtn != null) {
@@ -81,6 +88,15 @@ public class LandingPage extends AppCompatActivity {
                 compareBtn.setOnClickListener(v ->
                         startActivity(new Intent(this, ComparePasswordsActivity.class))
                 );
+            }
+
+            Button notifyBtn = findViewById(R.id.notifyBtn);
+            if (notifyBtn != null) {
+                notifyBtn.setOnClickListener(v -> {
+                    Intent intent = new Intent(PasslockNotificationReceiver.ACTION);
+                    intent.setClass(this, PasslockNotificationReceiver.class);
+                    sendBroadcast(intent);
+                });
             }
         }
 
