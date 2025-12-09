@@ -11,7 +11,7 @@ import androidx.room.RoomDatabase;
                 User.class,
                 PassLock.class
         },
-        version = 4, // Incremented version number
+        version = 5, // Incremented version number
         exportSchema = false
 )
 public abstract class AppDatabase extends RoomDatabase {

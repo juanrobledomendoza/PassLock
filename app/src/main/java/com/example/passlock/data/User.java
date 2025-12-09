@@ -20,10 +20,14 @@ public class User {
     @ColumnInfo(name = "is_admin")
     private boolean isAdmin;
 
+    @ColumnInfo(name = "suggestions_enabled")
+    private boolean suggestionsEnabled;
+
     public User(String username, String password, boolean isAdmin) {
         this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
+        this.suggestionsEnabled = true;
     }
 
     // Getters and setters
@@ -49,6 +53,14 @@ public class User {
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    public boolean isSuggestionsEnabled() {
+        return suggestionsEnabled;
+    }
+
+    public void setSuggestionsEnabled(boolean suggestionsEnabled) {
+        this.suggestionsEnabled = suggestionsEnabled;
     }
 }
 

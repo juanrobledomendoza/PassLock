@@ -5,6 +5,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Delete;
+import androidx.room.Update;
 
 @Dao
 public interface UserDao {
@@ -20,5 +21,8 @@ public interface UserDao {
 
     @Delete
     void deleteUser(User user);
+
+    @Update
+    void updateUser(User user);
 }
 
