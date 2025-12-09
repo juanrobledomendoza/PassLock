@@ -9,9 +9,10 @@ import androidx.room.RoomDatabase;
 @Database(
         entities = {
                 User.class,
-                PassLock.class
+                PassLock.class,
+                PasswordTest.class
         },
-        version = 4, // Incremented version number
+        version = 5, // Incremented version number
         exportSchema = false
 )
 public abstract class AppDatabase extends RoomDatabase {
@@ -20,6 +21,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UserDao userDao();
     public abstract PassLockDao passLockDao();
+    public abstract PasswordTestDao passwordTestDao();
 
     public static AppDatabase getInstance(Context context) {
         if (INSTANCE == null) {
